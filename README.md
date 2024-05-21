@@ -1,4 +1,3 @@
-
 # Ruby on Rails Assesment
 
 Thank you for taking this assessment. We will have you work with a sample Pet Adoption Service.
@@ -54,3 +53,46 @@ We will run the tests locally on our machines. Please provide any documentation 
 For submiting your assesment, please commit your changes into a new branch and open a new pull request after pushing your changes.
 
 After you submit your solution, we'll review it and talk it over with you.
+
+### Instructions for review
+
+- Run a bundle in order to add new Gems used for the test suite
+  ```
+  bundle
+  ```
+
+Gems added to support testing:
+
+```
+rspec
+shoulda
+FactoryBot
+```
+
+- run migrations to create changes in the database schema
+
+## Testing
+
+### Unit tests
+
+Validations have been added to the models and tested via model unit tests
+
+### Functional tests
+
+capybara was used to test behavior of Edit Pet considering the new weight attribute
+
+In order to run the tests use:
+
+```
+rspec
+```
+
+## API feature
+
+It isn't very clear to me what's the goal of this feature so I didn't implement it. At first glance I would create a metadata column in the pets table with type json and store the info provided by the api in it. The requirements are not clear in sense that:
+
+- should we build a service that hits the api on the fly and pull the information upon a given action?
+- which data provided by the API are important to the system
+- The API's endpoint `/breeds/id` needs an UUID for a given breed to pull the data related to that breed but the `/breeds` endpoint does not make easy search by breed in order to the get the proper UUID.
+
+Given questions on requirements I decided to not implment the feature until further clarification.

@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_15_193131) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_21_173115) do
+  create_table "owners", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.string "kind"
     t.string "breed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "weight"
+    t.integer "owner_id"
+    t.index ["owner_id"], name: "index_pets_on_owner_id"
   end
 
+  add_foreign_key "pets", "owners"
 end

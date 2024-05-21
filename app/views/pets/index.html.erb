@@ -7,8 +7,10 @@
     <%= render pet %>
     <p>
       <%= link_to "Show this pet", pet %>
+      <%= link_to "Update pet", edit_pet_path(pet.id) %>
     </p>
   <% end %>
 </div>
 
 <%= link_to "New pet", new_pet_path %>
+
